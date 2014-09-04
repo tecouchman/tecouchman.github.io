@@ -1,0 +1,116 @@
+html, body
+{
+    margin: 0px;
+    font-family: hind, sans-serif;
+    background-color: #FFF;
+}
+
+*
+{
+    box-sizing: border-box;
+}
+
+h1 {
+    font-weight: 200;   
+}
+
+
+header
+{
+    background: url('../images/desk-small.jpg');
+    background-size: cover;
+    background-position: 50% 40%;
+    border: 1px solid rgba(0,0,0,0);
+    color: white;
+}
+
+
+#logo
+{
+    width: 478px;
+    height: 78px;
+    margin: 190px auto 120px auto;
+    border: 6px solid white;
+    padding: 14px 12px;
+}
+
+
+#logo h1 {
+    font-weight: 600;   
+    font-size: 3.5em;
+    line-height: 0.9em;
+    margin-top: 0px;
+}
+
+
+#logo p {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+
+.page
+{
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.page p
+{
+    margin: 50px 0;   
+}
+
+
+#profile-picture
+{
+    width: 130px;
+    height: 130px;
+    border-radius: 65px;   
+}
+
+#overview
+{
+
+}
+
+ul#overview
+{
+    display: block;
+    width: 100%;
+    margin: 30px 0;
+    padding-left: 0;
+    list-style: none;
+    font-weight: 200;
+}
+
+ul#overview li
+{ 
+    display: inline-block;
+    width: 300px;
+    height: 100px;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 1.2em;
+}
+
+
+#overview .detail
+{
+    color: #adadad;
+    font-size: 0.8em;
+}
+
+i
+{
+        color: rgb(95, 226, 182);
+        display: block;
+        margin: 10px;
+        margin: 10px;
+        font-size: 1.3em;
+}
+
+.icon-email:before { content: '\e806'; } /* '' */
+.icon-location:before { content: '\e801'; } /* '' */
+
+
