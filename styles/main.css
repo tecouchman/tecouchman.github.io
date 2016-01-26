@@ -2,7 +2,12 @@ html, body
 {
     margin: 0px;
     font-family: hind, sans-serif;
-    background-color: #FFF;
+	background: url('../images/background.jpg');
+	background-color: #696969;
+    background-size: cover;
+    background-position: 90% 40%;
+	text-align: center;
+	color: #ffffff;
 }
 
 *
@@ -14,119 +19,77 @@ h1 {
     font-weight: 200;   
 }
 
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 0 20px 70px 20px;
 
-header 
-{
-    background: url('../images/desk-small.jpg');
-    background-size: cover;
-    background-position: 50% 40%;
-    border: 1px solid rgba(0,0,0,0);
-    color: white;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#80000000',GradientType=0 ); /* IE6-9 */
+
 }
 
-
-@media only screen and (max-height: 480px) 
-{
-    header
-    {
-        font-size: 1.1em;
-    }
- 
-}
-
-
-#logo
-{
-    width: 478px;
-    height: 78px;
-    margin: 190px auto 120px auto;
-    border: 6px solid white;
-    padding: 14px 12px;
-}
-
-
-#logo h1 
+footer h1 
 {
     font-weight: 600;   
-    font-size: 3.5em;
+    font-size: 3.1em;
     line-height: 0.9em;
-    margin-top: 0px;
+	margin: 0;
 }
 
-
-#logo p 
+footer p 
 {
-    font-size: 1.1em;
-    text-align: center;
+    font-size: 1.3em;
+	margin: 5px 0 0 0;
+	color: rgb(191, 191, 191);
 }
 
-
-@media only screen and (max-width: 480px) 
+#overview
 {
+    display: block;
+    width: 150px;
+    margin: 30px auto 30px auto;
+	padding-top: ;
+    padding-left: 0;
+    list-style: none;
+    font-weight: 200;
+}
 
-    #logo h1 
-    {
-        font-weight: 600;   
-        font-size: 2.3em;
-    }
+#contact-button {
+	display: block;
+	width: 150px;
+	padding: 5px;
+	border-radius: 15px;
+	border: 2px solid rgb(84, 214, 179);
+	margin: 0 auto;
+	font-size: 1.2em;
+}
 
-
-    #logo
-    {
-        width: 325px;
-        height: 60px;
-        marging: 190px auto 120px auto;
-        border: 6px solid white;
-        padding: 10px 8px;
-    }
-    
+a#contact-button {
+	color: rgb(84, 214, 179);
+	text-decoration: none !important;
 }
 
 
-@media only screen and (max-height: 480px) 
-{
-
-    #logo
-    {
-        margin: 100px auto 120px auto;
-    }
-
-    #logo p {
-        color: white;
-        text-align: center;
-    }
-
+@media screen and (max-height: 400px) {
+	footer {
+		padding-top: 60px;
+		height: 100%;
+	}
 }
 
 
-.page
-{
-    text-align: center;
-    width: 500px;
-    margin: 0 auto;
+
+@media screen and (max-height: 320px) {
+	footer {
+		padding-top: 30px;
+		height: 100%;
+	}
 }
 
-.page p
-{
-    margin: 50px 0;   
-}
-
-@media only screen and (max-width: 480px) 
-{
-
-    .page
-    {
-        text-align: center;
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .page p
-    {
-        margin: 50px 0;   
-    }
-
-}
 
 
 
@@ -137,40 +100,11 @@ header
     border-radius: 65px;   
 }
 
-
-ul#overview
-{
-    display: block;
-    width: 100%;
-    margin: 30px 0;
-    padding-left: 0;
-    list-style: none;
-    font-weight: 200;
-}
-
-ul#overview li
-{ 
-    display: inline-block;
-    width: 300px;
-    height: 100px;
-    margin: 0 10px 10px 0;
-    text-align: center;
-    line-height: 1.2em;
-}
-
-
-#overview .detail
-{
-    color: #adadad;
-    font-size: 0.8em;
-}
-
 i
 {
         color: rgb(84, 214, 179);
         display: block;
-        margin: 10px;
-        margin: 10px;
+        margin: 10px 0 15px 0;
         font-size: 1.3em;
 }
 
