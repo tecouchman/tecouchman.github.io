@@ -92,10 +92,16 @@ a#contact-button {
 	}
 }
 
+@media screen and (max-height: 360px) {
+	footer {
+		width: 200px;
+	}
+}
+
 footer {
 	position: absolute;
-	width: 100%;
-	bottom: 0px;
+	bottom: 0;
+	right: 0;
 	padding: 10px 15px;
 	font-size: 0.75em;
 	color: rgba(255,255,255,0.4);
@@ -111,9 +117,10 @@ footer a {
 	display: inline-block;
 	border: 1px solid rgba(255,255,255,0.4);
 	border-radius: 10px;
-	width: 15px;
-	height: 15px;
-	line-height: 1.2em;
+	width: 14px;
+	height: 14px;
+	line-height: 1.4em;
+	font-size: 0.9em;
 	padding-left: -10px;
 	text-align: center;
 }
