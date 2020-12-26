@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Raleway:100,200' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Hind:400,600" rel="stylesheet" type="text/css">
   <link href="styles/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="fonts/css/fontello.css">
+  <script src="scripts/index.js"></script>
 </head>
 
 <body>
   <header>
     <div class="content">
+      <!-- <img src="images/name.png" /> -->
       <h1 id="main-text">TOM COUCHMAN</h1>
       <p>Software Developer</p>
       <ul id="overview">
@@ -21,24 +24,41 @@
           <li><i class="icon-linkedin-squared"></i> LinkedIn</li>
         </a>
       </ul>
-      <a id="contact-button" href="mailto:tecouchman@gmail.com">Contact Me</a>
+      <div id="contact-button" class="page" href="#">Contact Me</div>
     </div>
   </header>
+  <div class="modal" id="email-modal">
+    <div class="page">
+      <div class="header">Contact Me <span class="close">&times;</span></div>
+      <div class="page-content">
+        <form action="mailto:tom@couchman.dev" method="POST" enctype="multipart/form-data" name="EmailForm">
+          Name:<br>
+          <input type="text" size="19" name="ContactName"><br><br>
+          Message:<br> <textarea name="ContactCommentt" rows="6″ cols="20″>
+          </textarea><br><br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
   <div class="content">
-    <div id="profile" class="section">
-      <p>
-        <!--Having recently moved to China, I am currently looking for a position in IT. 
-          In my previous role, working in a small team of software developers, I gained experience 
-          of each step of the software development process, as well as the communication skills 
-          required to work in such an environment. Through my degree I have developed a high level 
-          of cultural awareness and understanding, and have also gained knowledge of the Chinese 
-          business environment.-->
+    <div id="profile" class="section page">
+      <div class="header">Intro</div>
+      <div class="page-content">
+        <p>
+          <!--Having recently moved to China, I am currently looking for a position in IT. 
+            In my previous role, working in a small team of software developers, I gained experience 
+            of each step of the software development process, as well as the communication skills 
+            required to work in such an environment. Through my degree I have developed a high level 
+            of cultural awareness and understanding, and have also gained knowledge of the Chinese 
+            business environment.-->
 
-        I am software developer from the UK, currently based in Kanagawa. In my previous role, working in
-        a small team of software developers, I gained experience
-        of each step of the software development process, as well as the communication skills
-        required to work in such an environment.
-      </p>
+          I am software developer from the UK, currently based in Kanagawa. In my previous role, working in
+          a small team of software developers, I gained experience
+          of each step of the software development process, as well as the communication skills
+          required to work in such an environment.
+        </p>
+      </div>
     </div>
     <div class="section">
       <h2>Work History</h2>
@@ -55,18 +75,18 @@
               I work with a small team developing websites and mobile apps using Firebase, Unity and Ruby on Rails.
               <br>
               Techonologies:
-              <ul>
-                <li>Firebase</li>
-                <li>Unity (iOS/Android)</li>
-                <li>Ruby on Rails </li>
-              </ul>
-              <br>
-              Languages:
-              <ul>
-                <li>C#</li>
-                <li>JavaScript/TypeScript</li>
-                <li>Ruby on Rails </li>
-              </ul>
+            <ul>
+              <li>Firebase</li>
+              <li>Unity (iOS/Android)</li>
+              <li>Ruby on Rails </li>
+            </ul>
+            <br>
+            Languages:
+            <ul>
+              <li>C#</li>
+              <li>JavaScript/TypeScript</li>
+              <li>Ruby on Rails </li>
+            </ul>
             </p>
           </li>
           <li>
@@ -107,7 +127,8 @@
             <ul>
               <li>IOS application providing the main functions of the Shuttleworth Print management software. Users can
                 view
-                and search for events, companies and contacts. They can also add, edit and close events, view attachments
+                and search for events, companies and contacts. They can also add, edit and close events, view
+                attachments
                 and add comments.
               </li>
               <li>Web based customer management portal for print company. Allowing their different sites to log in to
@@ -119,7 +140,8 @@
               <li>Student registration website. Online registration site allowing student from overseas to register as
                 present in a class. Worked on the prototype site design.
               </li>
-              <li>Web based mobile app development prototype. Allowed users to drag and drop new screens into a project's
+              <li>Web based mobile app development prototype. Allowed users to drag and drop new screens into a
+                project's
                 navigation tree. Each screen could be fully customised by dragging and dropping controls, and editing
                 properties such as font colours, background images and label text.
 
@@ -156,8 +178,10 @@
               <div class="bullet"></div>
               <div class="date">2014-09 <div class="date-to">♦</div> 2015-09</div>
             </div>
-            <h2><span class="highlight">MSc Software Development (conversion)</span> Queen’s University Belfast, Northern Ireland</h2> (Distinction)
-            <p>Final Project: I developed a framework for plugin-free audio-visual communication in the web browser built on the WebRTC API. Written in Javascript, with a Node.js backend.</p>
+            <h2><span class="highlight">MSc Software Development (conversion)</span> Queen’s University Belfast,
+              Northern Ireland</h2> (Distinction)
+            <p>Final Project: I developed a framework for plugin-free audio-visual communication in the web browser
+              built on the WebRTC API. Written in Javascript, with a Node.js backend.</p>
           </li>
           <li>
             <div class="relative">
@@ -219,4 +243,5 @@
       BY</a><br>Modified: <span class="info" title="Brightness has been darkened from the original image">i</span>
   </footer>
 </body>
+
 </html>

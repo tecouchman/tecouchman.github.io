@@ -1,8 +1,12 @@
 body
 {
     margin: 0px;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: hind, sans-serif;
     font-weight: 300;
+    background: url('../images/bg-repeating-white1.png');
+    background-color: rgb(233, 234, 240);
+    cursor: url('../images/arrow.png'), auto;	
 }
 
 *
@@ -11,21 +15,28 @@ body
 }
 
 h1, h2 {
-    font-weight: 200;
+    font-weight: 800;
     text-align: center;
 }
 
 header {
-	background: url('../images/background.jpg');
-	background-color: #696969;
-    background-size: cover;
-    background-position: 70% 40%;
-    color: #ffffff;
+    /* background: url('../images/bg-repeating-white1.png'); */
+    /* background-size: 50%; */
+    /* background-color: #696969; */
+    background-color: rgb(255, 190, 13);
+    /* background-size: cover; */
+    /* background-position: 70% 40%; */
+    color: #000;
     text-align: center;
 }
 
 header h1 {
-    font-family: Raleway, sans-serif;
+    /* font-family: Raleway, sans-serif; */
+    font-weight: 800;
+    color: white;
+    /* text-stroke: 1px black;
+    -webkit-text-stroke: 1px black; */
+    text-shadow: 3px 3px 0px black;
 }
 
 .content {
@@ -34,12 +45,23 @@ header h1 {
 }
 
 .content .section {
-    padding: 60px 0 0 0;
+    margin-top: 40px;
+    /* padding: 60px 0 0 0; */
+    background: url('../images/bg-repeating-white1.png');
+    background-color: rgb(245, 239, 227);
+    /* padding: 0 30px 30px 30px !important; */
+    box-shadow: 10px 10px 0px black;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 header .content {
 	width: 100%;
-	padding: 80px 20px 40px 20px;
+    padding: 80px 20px 40px 20px;
+}
+
+.no
+{
 	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -49,35 +71,49 @@ header .content {
 header .content h1 
 {
     font-weight: 600;   
-    font-size: 3.1em;
+    font-size: 4.8em;
     line-height: 0.9em;
-    color: #fff;
+    /* color: #fff; */
     margin-top: 20px;
-    text-shadow: rgba(0, 0, 0, 0.3) 0 0 5px;
+    /* text-shadow: rgba(0, 0, 0, 0.3) 0 0 5px; */
 }
 
 header .content p 
 {
     font-size: 1.3em;
 	margin: 5px 0 0 0;
-	color: rgb(214, 214, 214);
-	text-shadow: rgba(0, 0, 0, 0.48) 0 0 3px;
+	/* color: rgb(214, 214, 214); */
+	/* text-shadow: rgba(0, 0, 0, 0.48) 0 0 3px; */
+}
+
+header img {
+    width: 100%;
+    max-width: 700px;
 }
 
 #contact-button {
 	display: block;
     width: 140px;
     padding: 2px;
-	border-radius: 15px;
-	border: 2px solid rgb(84, 214, 179);
+	/* border-radius: 15px; */
+	/* border: 2px solid rgb(84, 214, 179); */
 	margin: 0 auto;
     font-size: 1.2em;
-    color: rgb(84, 214, 179);
-	text-decoration: none !important;
+    color: white;
+    background-color: rgb(36, 106, 235);
+    text-decoration: none !important;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.7);
+    border: 2px solid black;
+    border-radius: 5px;
+}
+#contact-button.page {
+    padding: 10px !important;
 }
 
 #contact-button:hover {
-    background-color: rgba(84, 214, 179, 0.3);
+    transform: translate(5px, 5px);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.7);
+    background-color: rgb(24, 86, 202);
 }
 
 @media screen and (max-height: 400px) {
@@ -112,6 +148,62 @@ footer a {
 	color: rgba(255,255,255,0.4);
 }
 
+.page {
+    background-color: rgb(75, 238, 175);
+    margin: 60px 0 0 0;
+    padding: 0 !important;
+    box-shadow: 10px 10px 0px black;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+.page .header {
+    background-color: rgb(48, 177, 127);
+    margin-bottom: 20px;
+    padding: 5px;
+    color: white;
+    font-weight: 800;
+    border-bottom: 2px solid black;
+}
+
+.page .page-content {
+    padding: 20px 
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal .page {
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 .info {
 	cursor: help;
 	display: inline-block;
@@ -134,10 +226,12 @@ footer a {
 
 i
 {
-    color: rgb(84, 214, 179);
+    /* color: rgb(84, 214, 179); */
+    color: white;
     display: block;
-    margin: 10px 0 15px 0;
-    font-size: 1.3em;
+    margin: 10px;
+    font-size: 2.3em;
+    text-shadow: 3px 3px 0px black;
 }
 
 #page
@@ -162,15 +256,15 @@ p
 h1, h2
 {
     margin: 10px 0 0 0;  
-    font-weight: 300;
+    font-weight: 800;
 }
 
 h1
 {
     font-size: 3.6em;
-    color: rgb(84, 214, 179);  
-    font-family: Raleway, sans-serif;
-    font-weight: 100;
+    /* color: rgb(84, 214, 179);   */
+    /* font-family: Raleway, sans-serif; */
+    font-weight: 800;
 }
 
 h2
@@ -221,15 +315,6 @@ ul#overview li
 ul#overview a li {
     text-decoration: none;
     color: white;
-}
-
-i
-{
-    color: rgb(81, 219, 160);
-    display: block;
-    margin: 10px;
-    margin: 10px;
-    font-size: 1.3em;
 }
 
 #profile
