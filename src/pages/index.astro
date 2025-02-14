@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Social from '../components/Social.astro';
+
+const pageTitle = "";
+---
+<BaseLayout pageTitle={pageTitle} >
+	<div class="content">
+		<h1 id="main-text">Hi, I'm Tom 👋
+		</h1>
+		<p>
+			I'm a Software Developer based in Yokohama, Japan.
+			<br><br>
+			I work at <a href="https://steins.co.jp" target="_blank">Steins Inc.</a>
+			<br><br>
+			I make <a class="hightlight" href="#projects" onclick={`highlightTag('game')`}>games</a>, <a class="hightlight" href="#projects" onclick={`highlightTag('www')`}>websites</a> and <a class="hightlight" href="#projects"  onclick={`highlightTag('bot')`}>stuff</a>.<br>
+		</p>
+	</div>
+	<div class="content">
+		<a href="/contact" class="button contact"><i class="icon-mail-alt"></i> Contact Me</a>
+	</div>
+	<div class="content">
+		<Social />
+	</div>
+
+	<div class="content" id="projects">
+		<h3>Projects</h3>
+		<div id="" class="section projects">
+			<div class="project">
+				<a class="cover-link" href="/voxel" target="_self"></a>
+				<div class="open-icon"><img src="/images/open-link.svg" /></div>
+				<h3>Tiny Voxels</h3><span class="year">2024~</span>
+				<p>Raymarched voxel sandbox game with mini voxels.</p>
+				<div class="tags">
+					<div>voxels</div> <div>game</div> <div>unity</div>
+				</div>
+			</div>
+			<div class="project" style="">
+				<h3>couchman.dev</h3><span class="year">2025</span>
+				<p>This site. Redesigned and rebuilt using Astro.</p>
+				<div class="tags">
+					<div>www</div> <div>astro</div>
+				</div>
+				<a class="src" href="https://github.com/tecouchman/tecouchman.github.io" target="_blank">
+					<img src="images/github-mark.svg" alt="GitHub" class="github-mark" />
+				</a>
+			</div>
+			<div class="project" style="">
+				<a class="cover-link" href="/terrain"></a>
+				<div class="open-icon"><img src="/images/open-link.svg" /></div>
+				<h3>Line Rendered Terrain</h3><span class="year">2024</span>
+				<p>Interactive terrain drawn using paths on HTML canvas.</p>
+				<div class="tags">
+					<div>www</div> <div>javascript</div>
+				</div>
+				<a class="src" href="https://github.com/tecouchman/tecouchman.github.io" target="_blank">
+					<img src="images/github-mark.svg" alt="GitHub" class="github-mark" />
+				</a>
+			</div>
+			<div class="project">
+				<a class="cover-link" href="https://www.couchman.dev/css-craft/" target="_blank"></a>
+				<div class="open-icon"><img src="/images/open-link.svg" /></div>
+				<h3>CSS Craft</h3><span class="year">2015, 2022</span>
+				<p>Minecraft-like voxel world, built with CSS 3D.</p>
+				<div class="tags">
+					<div>www</div> <div>css</div> <div>voxels</div>
+				</div>
+				<a class="src" href="https://github.com/tecouchman/css-craft" target="_blank">
+					<img src="images/github-mark.svg" alt="GitHub" class="github-mark" />
+				</a>
+			</div>
+			<div class="project">
+				<a class="cover-link" href="https://twitter.com/ManulEveryHour" target="_blank"></a>
+				<div class="open-icon"><img src="/images/open-link.svg" /></div>
+				<h3>Manul Every Hour</h3><span class="year">2022~</span>
+				<p>Twitter bot that posts pictures of Manuls on the hour every hour. Hosted on a Raspberry Pi.</p>
+				<div class="tags">
+					<div>twitter</div> <div>bot</div> <div>raspberry pi</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="content"  id="cv">
+		<h3>Resume/CV</h3>
+		<div class="section">
+			<p>
+				<a href="resume">View Resume</a>
+			</p>
+		</div>
+	</div>
+
+</BaseLayout>
+<script>
+
+	function highlightTag(tag : string) {
+		document.querySelectorAll('.tags div').forEach((tagDiv) => {
+			if (tagDiv.innerHTML == tag) {
+				// find parent with the .project class and add class to it
+				tagDiv.closest('.project')?.classList.add('flash');
+
+				// remove class after 1 second
+				setTimeout(() => {
+					tagDiv.closest('.project')?.classList.remove('flash');
+				}, 1500);
+			}
+		});
+	}
+
+	window.highlightTag = highlightTag;
+
+</script>

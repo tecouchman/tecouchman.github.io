@@ -1,0 +1,21 @@
+---
+import Logo from '../../public/images/icon-progress.svg?raw';
+
+let stack = [
+    { name: "English", "icon": "uk", level: 100 }, 
+    { name: "Japanese", "icon": "japan", level: 50 }, 
+    { name: "Chinese", "icon": "china", level: 10 }, 
+]
+---
+
+<h3>Languages</h3>
+<div class="tech-stack small-icon">
+    <!-- <h2>{title}</h2> -->
+    {stack.map((item: any, i: number) => (
+        <div class={`progress progress-${item.level}`}>
+            <Fragment set:html={Logo} />
+            <img src={`/images/icons/${item.icon}.png`} title={item.name} />
+        </div>
+    ))}
+</div>
+

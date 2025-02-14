@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Modal from "../components/Modal.astro";
+import type { ImageData } from "../types/ImageData";
+
+const pageTitle = "";
+const images: ImageData[] = [
+  { src: "/images/projects/voxel/2025-01-26 3.png", fullWidth: true, date: "2025-01-26" },
+  { src: "/images/projects/voxel/2025-01-26 2.png", fullWidth: true, date: "2025-01-26"  },
+  { src: "/images/projects/voxel/2025-01-26.png", date: "2025-01-26"  },
+  { src: "/images/projects/voxel/2024-11-23.png", date: "2024-11-23" },
+  { src: "/images/projects/voxel/2024-09-17 2.png", date: "2024-09-17"  },
+  { src: "/images/projects/voxel/2024-09-17.png", date: "2024-09-17"  }
+];
+---
+<BaseLayout pageTitle={pageTitle}>
+    <span id="top"></span>
+	<div class="content">
+		<a href="/">&lt; back</a>
+	</div>
+    <div class="content" id="photos">
+        <h1>Tiny Voxels</h1>
+        <div id="photos" class="section photos">
+            {images.map((image, index) => 
+				<div class={"img" + (image.fullWidth ? " single" : "")}>
+					<span class="date-pill">{image.date}</span>
+					<img 
+						src={image.src} 
+						alt={`Image ${index + 1}`} 
+						onclick={`window.openModal(${JSON.stringify(images)}, ${index})`}
+					/>
+				</div>
+            )}
+        </div>
+    </div>
+
+    <Modal images={images} isOpen={false} />
+</BaseLayout>

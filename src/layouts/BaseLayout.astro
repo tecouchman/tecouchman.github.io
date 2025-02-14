@@ -1,0 +1,25 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+const { pageTitle, forceDark } = Astro.props;
+
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <link href="/fonts/fontello/css/fontello.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <ViewTransitions />
+  </head>
+  <body class={`dark ${forceDark ? 'force-dark' : ''} parallax`} >
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

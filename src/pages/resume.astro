@@ -1,0 +1,232 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Social from "../components/Social.astro";
+import TechStacks from "../components/TechStacks.astro";
+import LanguageStack from "../components/LanguageStack.astro";
+
+const pageTitle = "";
+---
+
+<BaseLayout pageTitle={pageTitle} >
+
+	<div class="content">
+		<a id="back-button" href="/" style="display: none;">&lt; back</a>
+	</div>
+	<div class="content">
+		<h1 id="main-text">Tom Couchman</h1>
+		<p><span class="flashy">Software Developer</span></p>
+		<br />
+		<p>
+			I'm a British <span class="">Software Developer</span> based in Yokohama, Japan.
+		</p>
+		<p>
+			I develop websites, games and mobile apps.
+		</p>
+		<Social showWebsite="true" />
+		<div>
+			<a href="/contact" class="button contact" style="margin: 15px 0 20px -3px"><i class="icon-mail-alt"></i> Contact Me</a>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="section" id="cv">
+			<h2>Work History</h2>
+			<div class="timeline">
+				<div class="line" style="height: 72%;"></div>
+				<ul>
+					<li>
+						<div class="relative">
+							<div class="bullet"></div>
+						</div>
+						<h2>
+							<span class="highlight">Software Developer</span> Steins
+							Inc.
+						</h2>
+						<h3>2020-04 - Present</h3>
+						<h4>Ebisu, Tokyo, Japan</h4>
+						<p>
+							Techonologies:
+						</p>
+						<ul class="tags">
+							<li>Unity</li>
+							<li>Ruby on Rails</li>
+							<li>Postgres</li>
+							<li>AWS</li>
+							<li>Firebase</li>
+						</ul>
+						<p>
+							Languages:
+						</p>
+						<ul class="tags">
+							<li>C#</li>
+							<li>JavaScript</li>
+							<li>TypeScript</li>
+							<li>Ruby</li>
+							<li>PHP</li>
+						</ul>
+					</li>
+					<li>
+						<div class="relative">
+							<div class="bullet"></div>
+						</div>
+						<h2>
+							<span class="highlight">Software Developer</span> Co-graph
+							Inc.
+						</h2>
+						<h3>2016-02 - 2020-03</h3>
+						<h4>Gotanda, Tokyo, Japan</h4>
+						<p>
+							Techonologies:
+						</p>
+						<ul class="tags">
+							<li>Unity</li>
+							<li>.Net/WPF</li>
+							<li>React.js</li>
+							<li>Vue.js</li>
+							<li>MongoDB</li>
+						</ul>
+						<p>
+							Languages:
+						</p>
+						<ul class="tags">
+							<li>C#</li>
+							<li>JavaScript</li>
+						</ul>
+					</li>
+					<li>
+						<div class="relative">
+							<div class="bullet"></div>
+						</div>
+						<h2>
+							<span class="highlight">Localisation Engineer</span> Pactera
+							Technology Ltd.
+						</h2>
+						<h3>2013-05 - 2014-09</h3>
+						<h4>Beijing, China</h4>
+					</li>
+					<li>
+						<div class="relative">
+							<div class="bullet"></div>
+						</div>
+						<h2>
+							<span class="highlight">Software Developer</span> Shuttleworth
+							Business Systems
+						</h2>
+						<h3>2012-01 - 2013-02</h3>
+						<h4>Kettering, UK</h4>
+						<p>
+							Techonologies:
+						</p>
+						<ul class="tags">
+							<li>ASP.NET</li>
+							<li>WPF</li>
+							<li>OpenEdge DB</li>
+							<li>MongoDB</li>
+						</ul>
+						<p>
+							Languages:
+						</p>
+						<ul class="tags">
+							<li>Objective-C</li>
+							<li>C#</li>
+							<li>JavaScript</li>
+							<li>OpenEdge ABL</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="section">
+				<h2>Education and Qualifications</h2>
+				<div class="timeline">
+					<div class="line" style="height: 76%;"></div>
+					<ul>
+						<li>
+							<div class="relative">
+								<div class="bullet"></div>
+							</div>
+							<h2>
+								<span class="highlight">MSc Software Development (conversion)</span>
+								Queen’s University Belfast, Northern Ireland
+							</h2> (Distinction)
+							<h3>2014-09 - 2015-09</h3>
+							<p>
+								Modules included:
+							</p>
+							<ul class="tags">
+								<li>Software Development (Java)</li>
+								<li>Software Testing</li>
+								<li>Mobile Development</li>
+							</ul>
+							<p>
+								Final Project: I developed a framework for
+								plugin-free audio-visual communication in the web
+								browser built with the WebRTC API. Written in
+								JavaScript, with a Node.js backend.
+							</p>
+						</li>
+						<li>
+							<div class="relative">
+								<div class="bullet"></div>
+							</div>
+							<h2>
+								<span class="highlight">BA East Asian Studies</span>
+								University of Sheffield
+							</h2> (2:1)
+							<h3>2007-09 - 2011-06</h3>
+						</li>
+						<li>
+							<div class="relative">
+								<div class="bullet"></div>  
+							</div>
+							<h2>
+								<span class="highlight">A levels</span> Bridgwater College
+							</h2>
+							<h3>2005-09 - 2007-06</h3>
+							<p>
+								Computing (A), Psychology (A), Sociology (A)
+							</p>
+						</li>
+						<li>
+							<div class="relative">
+								<div class="bullet"></div>
+	
+							</div>
+							<h2>
+								<span class="highlight">GCSEs</span> King Alfred School
+							</h2>
+							<h3>2000-09 - 2005-06</h3>
+							<p>
+								11 GCSE (A-C), including 5 As in English,
+								Mathematics, Double Science and Design & Technology.
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="section skills">
+				<h2>Skills</h2>
+				<TechStacks />
+				<LanguageStack />
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<script is:inline>
+	const backButton = document.getElementById('back-button');
+	const referrer = document.referrer;
+  
+	if (referrer) {
+	  try {
+		const referrerUrl = new URL(referrer);
+		const currentOrigin = window.location.origin;
+  
+		// Show back button only if referrer is from the same origin and history allows back navigation
+		if (referrerUrl.origin === currentOrigin && window.history.length > 1) {
+		  backButton.style.display = 'inline-block';
+		}
+	  } catch (error) {
+		// Invalid referrer (unlikely if referrer is provided)
+	  }
+	}
+  </script>

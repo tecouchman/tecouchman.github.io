@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Contact from '../components/Contact.astro';
+
+const pageTitle = "";
+---
+<BaseLayout pageTitle={pageTitle} >
+	<div class="content">
+		<a href="/">&lt; back</a>
+	</div>
+	<br>
+	<div class="content">
+		<h3>Contact</h3>
+		<div class="section" id="contact">
+			<Contact />
+		</div>
+	</div>
+
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+import TechStack from './TechStack.astro';
+let languages = ["C#", "JavaScript", "Ruby", "TypeScript", "CSS", "SASS", "HTML5", "Java", "Kotlin", "Python"];
+let tech = ["AWS", "Rails", "Docker", "Astro", "Git",  "jQuery", "MongoDB", "MySQL", "PostgreSQL", "Node.js", "npm", "OpenAI"];
+// Todo : 
+// add untiy, other missing tech
+
+let currentlyLearning = ["React", "Next.js", "Tailwind"];
+let currentlyLearningProgress = [20, 10, 20];
+
+---
+<h3>Programming Languages</h3>
+<TechStack title="Languages" stack={languages} />
+<h3>Tech</h3>
+<TechStack title="Tech" stack={tech} />
+<h3>Currently Learning</h3>
+<TechStack title="Learning" stack={currentlyLearning} progress={currentlyLearningProgress}/>

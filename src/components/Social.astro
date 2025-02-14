@@ -1,0 +1,34 @@
+---
+const { showWebsite=false } = Astro.props;
+---
+
+<!-- <ul id="overview">
+  <li><i class="icon-moon-inv"></i>Tom Couchman</li>
+  <li><i class="icon-location"></i>Yokohama, Japan</li>
+</ul> -->
+<ul id="overview">
+  { showWebsite && <li>
+    <a href="https://couchman.dev">
+      <i class="icon-link"></i>https://couchman.dev
+    </a>
+  </li>}
+  <li>
+    <a href="mailto:tom@couchman.dev" target="_blank">
+      <i class="icon-mail-alt"></i>tom@couchman.dev</li>
+    </a>
+  <li>
+    <a href="https://www.linkedin.com/in/tomcouchman/" target="_blank">
+      <i class="icon-linkedin-rect"></i>LinkedIn <span class="path">/tomcouchman</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/tecouchman/" target="_blank">
+      <i class="icon-github-circled"></i>Github <span class="path">/tecouchman</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://twitter.com/the_couchman" target="_blank">
+      <i class="icon-twitter"></i>Twitter <span class="path">/the_couchman</span>
+    </a>
+  </li>
+</ul>

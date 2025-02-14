@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Terrain from "../components/Terrain.astro";
+
+const pageTitle = "";
+---
+<BaseLayout pageTitle={pageTitle} forceDark={true}>
+    <span id="top"></span>
+    <div class="content">
+		<a href="/">&lt; back</a>
+	</div>
+    <Terrain />
+</BaseLayout>

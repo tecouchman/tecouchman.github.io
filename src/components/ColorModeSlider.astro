@@ -1,0 +1,91 @@
+---
+---
+<label class="color-mode switch">
+    <input type="checkbox" checked>
+    <span class="slider round"></span>
+    <span class="handle"></span>
+    <i class="icon-moon-inv dark"></i>
+    <i class="icon-sun-filled light"></i>
+</label>
+
+<script>
+
+    let isDarkMode = true;
+
+    // Broadcast changes when toggling
+    function toggleDarkMode(save: boolean, force?: boolean) {
+        let isDarkMode = document.body.classList.toggle("dark", force);
+        if (save) {
+            localStorage.setItem("preferLightMode", (!isDarkMode).toString());
+            
+            // Dispatch event for other components
+            document.dispatchEvent(new CustomEvent('colorModeChanged', { 
+                detail: { isDarkMode } 
+            }));
+        }
+    }
+
+    function getUserColorMode(callback: (preferLight: boolean) => void) {
+        if (!window.matchMedia) {
+            return;
+        }
+        
+        let query = window.matchMedia('(prefers-color-scheme: light)')
+        let preferLight = query.matches;
+        callback(preferLight);
+
+        query.addEventListener('change', (event) => callback(event.matches));
+
+        return preferLight;
+    }
+
+    function getColorMode(skipTransitions : boolean = false) {
+        let preferLightStored = localStorage.getItem("preferLightMode");
+        let preferLight: boolean | undefined;
+
+        if (skipTransition) skipTransition();
+
+        if (preferLightStored != null) {
+            preferLight = preferLightStored == 'true'
+        }
+        else {
+            preferLight = getUserColorMode((preferLightUpdated) => {
+                applyColorMode(!preferLightUpdated);
+            });
+        }
+        applyColorMode(!preferLight);
+    }
+
+    function applyColorMode(isDark: boolean) {
+        isDarkMode = isDark;
+        toggleDarkMode(false, isDarkMode);
+        (document.querySelector('.color-mode.switch input')  as HTMLInputElement).checked = isDarkMode;
+    }
+
+    function skipTransition() {
+        document.body.classList.add('skip-transition');
+        setTimeout(() => {
+            document.body.classList.remove('skip-transition');
+        }, 1000);
+    }
+
+    getColorMode(true);
+
+    document.addEventListener('astro:page-load', () => {
+
+        let forceDark = document.body.classList.contains('force-dark');
+        if (forceDark) {
+            (document.querySelector('.color-mode.switch input')  as HTMLInputElement).disabled = true; 
+            (document.querySelector('.color-mode.switch')  as HTMLInputElement).classList.add('disabled');
+            toggleDarkMode(false, true);
+        }
+        else {
+            (document.querySelector('.color-mode.switch input')  as HTMLInputElement).addEventListener('change', (event) => {
+                toggleDarkMode(true);
+            });
+
+            getColorMode(true);
+        }
+    });
+
+</script>

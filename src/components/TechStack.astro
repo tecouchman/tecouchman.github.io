@@ -1,0 +1,17 @@
+---
+const { title, stack, progress = null } = Astro.props;
+import Logo from '../../public/images/icon-progress.svg?raw';
+
+let strip = (str : string) => str.replace(" ", "").replace(".", "").replace("#", "sharp").toLowerCase()
+---
+
+<div class="tech-stack">
+    <!-- <h2>{title}</h2> -->
+    {stack.map((item: string, i: number) => (
+        <div class={ progress && progress[i] ? `progress progress-${progress[i]}` : ''} >
+            {progress && <Fragment set:html={Logo} />}
+            <img src={`/images/icons/${strip(item)}.png`} title={item} />
+        </div>
+    ))}
+</div>
+

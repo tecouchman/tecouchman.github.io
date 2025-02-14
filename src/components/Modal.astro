@@ -1,0 +1,219 @@
+---
+import type { ImageData } from "../types/ImageData";
+
+interface Props {
+    images: ImageData[];
+    isOpen?: boolean;
+}
+
+const { images, isOpen = false } = Astro.props;
+---
+
+<div id="imageModal" class="modal" style="display: none;">
+    <button class="close-button" aria-label="Close modal">&times;</button>
+    <div class="modal-content">
+        <div class="image-container">
+            <span class="date-pill"></span>
+            <img id="modalImage" src="" alt="Modal image" />
+        </div>
+        <button class="nav-button prev" aria-label="Previous image">&#10094;</button>
+        <button class="nav-button next" aria-label="Next image">&#10095;</button>
+    </div>
+</div>
+
+<script>
+    class ImageModal {
+        private modal: HTMLElement;
+        private image: HTMLImageElement;
+        private datePill: HTMLElement;
+        private images: ImageData[];
+        private currentIndex: number = 0;
+
+        constructor() {
+            this.modal = document.getElementById("imageModal") as HTMLElement;
+            this.image = document.getElementById(
+                "modalImage",
+            ) as HTMLImageElement;
+            this.datePill = this.modal.querySelector(".date-pill") as HTMLElement;
+            this.images = [];
+
+            this.setupEventListeners();
+        }
+
+        // Bound method for keydown to allow removal
+        private handleKeydown = (e: KeyboardEvent) => {
+            if (!this.modal.style.display || this.modal.style.display === "none") return;
+
+            switch (e.key) {
+                case "Escape": this.close(); break;
+                case "ArrowLeft": this.prev(); break;
+                case "ArrowRight": this.next(); break;
+            }
+        }
+
+        private setupEventListeners(): void {
+            // Close on background click
+            this.modal.addEventListener('click', (e: MouseEvent) => {
+                if (e.target === this.modal) {
+                    this.close();
+                }
+            });
+
+            // Close button
+            this.modal
+                .querySelector(".close-button")
+                ?.addEventListener("click", () => this.close());
+
+            // Navigation buttons
+            this.modal
+                .querySelector(".prev")
+                ?.addEventListener("click", () => this.prev());
+            this.modal
+                .querySelector(".next")
+                ?.addEventListener("click", () => this.next());
+
+            // Click outside to close
+            this.modal.addEventListener("click", (e) => {
+                if (e.target === this.modal) this.close();
+            });
+
+            document.addEventListener("keydown", this.handleKeydown);
+        }
+
+        public open(images: ImageData[], startIndex: number = 0): void {
+            this.images = images;
+            this.currentIndex = startIndex;
+            this.updateImage();
+            this.modal.style.display = 'flex';
+            requestAnimationFrame(() => {
+                this.modal.classList.add('visible');
+            });
+            document.body.style.overflow = 'hidden';
+        }
+
+        public close(): void {
+            this.modal.classList.remove('visible');
+            setTimeout(() => {
+                this.modal.style.display = 'none';
+            }, 300); // Match transition duration
+            document.body.style.overflow = '';
+        }
+
+        private prev(): void {
+            this.currentIndex =
+                (this.currentIndex - 1 + this.images.length) %
+                this.images.length;
+            this.updateImage();
+        }
+
+        private next(): void {
+            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+            this.updateImage();
+        }
+
+        private updateImage(): void {
+            this.image.src = this.images[this.currentIndex].src;
+            this.datePill.textContent = this.images[this.currentIndex].date;
+        }
+    }
+
+    // Store modal instance on window for cleanup
+    declare global {
+        interface Window {
+            imageModal: ImageModal;
+            openModal: (images: ImageData[], startIndex?: number) => void;
+        }
+    }
+
+    
+    window.openModal = (images: ImageData[], startIndex: number = 0) => {
+        window.imageModal = new ImageModal();
+        window.imageModal.open(images, startIndex);
+    };
+</script>
+
+<style>
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .modal-content {
+        position: relative;
+        width: 90%;
+        /* height: 85vh; */
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+    }
+
+    .modal.visible .modal-content {
+        transform: translateY(0);
+    }
+
+    .image-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #modalImage {
+        max-width: 100%;
+        max-height: 85vh;
+        object-fit: contain;
+    }
+
+    .close-button {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 8px 16px;
+        border-radius: 30px;
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        padding: 10px 18.5px;
+        border: none;
+        cursor: pointer;
+        border-radius: 30px;
+        font-size: 1.2em;
+    }
+
+    .prev {
+        left: 10px;
+    }
+    .next {
+        right: 10px;
+    }
+</style>
