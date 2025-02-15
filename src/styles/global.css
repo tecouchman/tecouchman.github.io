@@ -268,7 +268,6 @@ strong {
 #overview, #profile {
     display: inline-block;
     vertical-align: top;
-    width: 50%;
 }
 
 #overview {
@@ -398,6 +397,21 @@ ul#overview li a {
     text-align: center;
     font-size: 0.7em;
     color: rgb(126, 126, 126); 
+}
+
+@media (max-width: 636px) {
+
+    .timeline .line {
+        left: 0px;
+    }
+
+    .timeline > ul {
+        padding-left: 15px;
+    }
+
+    .timeline .bullet {
+        left: -18px;
+    }
 }
 
 .date-to {
@@ -585,15 +599,36 @@ form input, form textarea {
 }
 
 .project {
-    overflow: hidden;
-    width: 48%;
-    padding: 12px;
+    padding: 10px 10px 35px 10px;
     display: inline-block;
-    height: 150px;
     border-radius: 10px;
-    margin-right: 8px;
-    margin-bottom: 15px;;
     position: relative;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+}
+
+@media (max-width: 636px) {
+    .project {
+        font-size: 0.95em;
+    }
+}
+
+@media (min-width: 480px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .project {
+        height: 150px;
+    }
+    
+    .project h3 {
+        margin-bottom: 8px;
+    }
 }
 
 .projects > a {
@@ -603,6 +638,8 @@ form input, form textarea {
 .project h3 {
     display: inline-block;
     margin: 0 10px 0 0;
+    font-size: 1.0em;
+    line-height: 0.9em;
 }
 
 .project .year {
@@ -676,22 +713,22 @@ form input, form textarea {
 
 .projects .flash {
     /* play one and reset */
-    animation: flash 1s 1;
+    animation: flash 1.5s 1;
     animation-fill-mode: forwards;
 }
 
 .dark .projects .flash {
-    animation: flashDark 1s 1;
+    animation: flashDark 1.5s 1;
 }
 
 @keyframes flash {
     0% { 
         background-color: rgb(255, 255, 255);
     }
-    5% {
+    20% {
         background-color: rgb(243, 243, 243);
     }
-    10% {
+    30% {
         background-color: rgb(243, 243, 243);
     }
     100% {
@@ -723,7 +760,8 @@ ul.tags {
     display: inline-block;
     border-radius: 6px;
     padding: 1px 6px 2px 6px;
-    margin-right: 5px;
+    margin-right: 3px;
+    margin-bottom: 3px;
     font-size: 0.9em;
     background-color: #e7e5e5;
     color: #383333;
@@ -754,12 +792,6 @@ ul.tags {
     position: absolute;
     bottom: 12px;
     right: 12px;
-}
-
-.project h3 {
-    font-size: 1.0em;
-    line-height: 0.9em;
-    margin-bottom: 8px;
 }
 
 .project img {
